@@ -13,10 +13,16 @@
 // !!! ALL YOU NEED TO CHANGE IS 4 FILE PATH BELOW !!!	
 //				(they are all optional, you can run cpu without change paths here,if files are failed to open, we will not dump the content to .txt and will not try to initial your bram)
 //////////////////////////////////////////////////////////////////////////////////
-`define DataRamContentLoadPath "F:\\VivadoWorkspace\\RISCV-CPU\\RISCV-CPU.srcs\\sources_1\\new\\SimFiles\\1testAll.data"
+/* `define DataRamContentLoadPath "F:\\VivadoWorkspace\\RISCV-CPU\\RISCV-CPU.srcs\\sources_1\\new\\SimFiles\\1testAll.data"
 `define InstRamContentLoadPath "F:\\VivadoWorkspace\\RISCV-CPU\\RISCV-CPU.srcs\\sources_1\\new\\SimFiles\\1testAll.inst"
 `define DataRamContentSavePath "F:\\VivadoWorkspace\\RISCV-CPU\\RISCV-CPU.srcs\\sources_1\\new\\SimFiles\\DataRamContent.txt"
 `define InstRamContentSavePath "F:\\VivadoWorkspace\\RISCV-CPU\\RISCV-CPU.srcs\\sources_1\\new\\SimFiles\\InstRamContent.txt"
+ */
+`define DataRamContentLoadPath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\test.data"
+`define InstRamContentLoadPath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\test.inst"
+`define DataRamContentSavePath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\DataRamContent.txt"
+`define InstRamContentSavePath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\InstRamContent.txt"
+
 `define BRAMWORDS 4096  //a word is 32bit, so our bram is 4096*32bit
 
 module testBench(

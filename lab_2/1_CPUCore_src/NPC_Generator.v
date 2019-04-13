@@ -20,16 +20,16 @@ module NPC_Generator(input wire [31:0] PCF,
 always@(*)
 begin
     if (BranchE == 1) begin
-        PC_In = BranchTarget;
+        PC_In <= BranchTarget;
     end
     else if (JalrE == 1) begin
-        PC_In = JalrTarget;
+        PC_In <= JalrTarget;
     end
     else if (JalD == 1) begin
-    PC_In = JalTarget;
+        PC_In <= JalTarget;
     end
     else begin
-        PC_In = PCF + 4;
+        PC_In <= PCF + 4;
     end
 end
 endmodule
