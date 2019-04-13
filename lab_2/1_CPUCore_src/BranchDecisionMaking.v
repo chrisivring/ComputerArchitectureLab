@@ -17,6 +17,19 @@ module BranchDecisionMaking(
     );
 endmodule
 
+always@(*) begin
+    case (BranchTypeE)
+        `NOBRANCH: BranchE <= 1'b0;
+        `BEQ: BranchE <= ($signed(Operand1) == $signed(Operand2));
+        `BNE: BranchE <= ($signed(Operand1) != $signed(Operand2));
+        `BLT: BranchE <= ($signed(Operand1) < $signed(Operand2));
+        `BLTU: BranchE <= (Operand1 < Operand2);
+        `BGE: BranchE <= ($signed(Operand1) >= $signed(Operand2));
+        `BGEU: BranchE <= (Operand1 >= Operand2);
+        default: BranchE <= 0;
+    endcase
+end
+
 //功能和接口说明
     //BranchDecisionMaking接受两个操作数，根据BranchTypeE的不同，进行不同的判断，当分支应该taken时，令BranchE=1'b1
     //BranchTypeE的类型定义在Parameters.v中

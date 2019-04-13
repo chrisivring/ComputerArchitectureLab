@@ -72,7 +72,6 @@ always@(*) begin
                 //SLTI
                 3'b010: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b01;   //A1 used
                     BranchTypeD <= `NOBRANCH;
@@ -82,7 +81,6 @@ always@(*) begin
                 //SLTIU
                 3'b011: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b01;   //A1 used
                     BranchTypeD <= `NOBRANCH;
@@ -92,7 +90,6 @@ always@(*) begin
                 //XORI
                 3'b100: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b01;   //A1 used
                     BranchTypeD <= `NOBRANCH;
@@ -102,7 +99,6 @@ always@(*) begin
                 //ORI
                 3'b110: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b01;   //A1 used
                     BranchTypeD <= `NOBRANCH;
@@ -112,7 +108,6 @@ always@(*) begin
                 //ANDI
                 3'b111: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b01;   //A1 used
                     BranchTypeD <= `NOBRANCH;
@@ -122,7 +117,6 @@ always@(*) begin
                 //SLLI
                 3'b001: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b01;   //A1 used
                     BranchTypeD <= `NOBRANCH;
@@ -135,7 +129,6 @@ always@(*) begin
                         //SRLI
                         7'b0000000: begin
                             RegWriteD <= `LW;
-                            
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b01;   //A1 used
                             BranchTypeD <= `NOBRANCH;
@@ -145,7 +138,6 @@ always@(*) begin
                         //SRAI
                         7'b0100000: begin
                             RegWriteD <= `LW;
-                            
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b01;   //A1 used
                             BranchTypeD <= `NOBRANCH;
@@ -154,7 +146,6 @@ always@(*) begin
                         end 
                         default: begin
                             RegWriteD <= `NOREGWRITE;
-                            
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b00;
                             BranchTypeD <= `NOBRANCH;
@@ -165,7 +156,6 @@ always@(*) begin
                 end     
                 default: begin
                     RegWriteD <= `NOREGWRITE;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b00;
                     BranchTypeD <= `NOBRANCH;
@@ -182,8 +172,7 @@ always@(*) begin
                     case (Fn7)
                         //ADD
                         7'b0000000: begin
-                            RegWriteD <= `LW;
-                            
+                            RegWriteD <= `LW;     
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b11;   //A1&A2 used
                             BranchTypeD <= `NOBRANCH;
@@ -193,7 +182,6 @@ always@(*) begin
                         //SUB
                         7'b0100000: begin
                             RegWriteD <= `LW;
-                            
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b11;   //A1&A2 used
                             BranchTypeD <= `NOBRANCH;
@@ -202,7 +190,6 @@ always@(*) begin
                         end
                         default: begin
                             RegWriteD <= `LW;
-                            
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b11;   //A1&A2 used
                             BranchTypeD <= `NOBRANCH;
@@ -213,8 +200,7 @@ always@(*) begin
                 end
                 //SLL
                 3'b001: begin
-                    RegWriteD <= `LW;
-                    
+                    RegWriteD <= `LW; 
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b11;   //A1&A2 used
                     BranchTypeD <= `NOBRANCH;
@@ -224,7 +210,6 @@ always@(*) begin
                 //SLT
                 3'b010: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b11;   //A1&A2 used
                     BranchTypeD <= `NOBRANCH;
@@ -234,7 +219,6 @@ always@(*) begin
                 //SLTU
                 3'b011: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b11;   //A1&A2 used
                     BranchTypeD <= `NOBRANCH;
@@ -244,7 +228,6 @@ always@(*) begin
                 //XOR
                 3'b100: begin
                     RegWriteD <= `LW;
-                    
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b11;   //A1&A2 used
                     BranchTypeD <= `NOBRANCH;
@@ -257,7 +240,6 @@ always@(*) begin
                         //SRL
                         7'b0000000: begin
                             RegWriteD <= `LW;
-                            
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b11;   //A1&A2 used
                             BranchTypeD <= `NOBRANCH;
@@ -267,7 +249,6 @@ always@(*) begin
                         //SRA
                         7'b0100000: begin
                             RegWriteD <= `LW;
-                            
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b11;   //A1&A2 used
                             BranchTypeD <= `NOBRANCH;
@@ -276,7 +257,6 @@ always@(*) begin
                         end
                         default: begin
                             RegWriteD <= `LW;
-                            
                             MemWriteD <= 4'b0000;
                             RegReadD <= 2'b11;   //A1&A2 used
                             BranchTypeD <= `NOBRANCH;
@@ -310,6 +290,90 @@ always@(*) begin
                     BranchTypeD <= `NOBRANCH;
                     AluContrlD <= `OR;
                     ImmType <= `RTYPE;
+                end
+            endcase
+        end
+        //JAL
+        7'b1101111: begin
+            RegWriteD <= `LW;
+            MemWriteD <= 4'b0000;
+            RegReadD <= 2'b00;   //A1&A2 not used
+            BranchTypeD <= `NOBRANCH;
+            AluContrlD <= `ADD;
+            ImmType <= `JTYPE;
+        end
+        //JALR
+        7'b1100111: begin
+            RegWriteD <= `LW;
+            MemWriteD <= 4'b0000;
+            RegReadD <= 2'b00;   //A1&A2 not used
+            BranchTypeD <= `NOBRANCH;
+            AluContrlD <= `ADD;
+            ImmType <= `JTYPE;
+        end 
+        //BranchType
+        7'b1100011: begin
+            case (Fn3)
+                //BEQ
+                3'b000: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `BEQ;
+                    AluContrlD <= `ADD;
+                    ImmType <= `BTYPE;
+                end
+                //BNE
+                3'b001: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `BNE;
+                    AluContrlD <= `ADD;
+                    ImmType <= `BTYPE;
+                end 
+                //BLT
+                3'b100: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `BLT;
+                    AluContrlD <= `ADD;
+                    ImmType <= `BTYPE;
+                end
+                //BGE
+                3'b101: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `BGE;
+                    AluContrlD <= `ADD;
+                    ImmType <= `BTYPE;
+                end
+                //BLTU
+                3'b110: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `BLTU;
+                    AluContrlD <= `ADD;
+                    ImmType <= `BTYPE;
+                end
+                3'b111: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `BGEU;
+                    AluContrlD <= `ADD;
+                    ImmType <= `BTYPE;
+                end
+                default: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'bxxxx;
+                    RegReadD <= 2'bxx;
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= 4'bxxxx;
+                    ImmType <= 3'bxxx;
                 end
             endcase
         end

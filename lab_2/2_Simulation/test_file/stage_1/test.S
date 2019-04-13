@@ -53,7 +53,7 @@ nop
 nop
 nop
 nop
-srl x2,x1,x2    #x1=9
+srl x2,x1,x2    #x2=9
 nop
 nop
 nop
