@@ -146,21 +146,21 @@ always@(*) begin
                         end 
                         default: begin
                             RegWriteD <= `NOREGWRITE;
-                            MemWriteD <= 4'b0000;
-                            RegReadD <= 2'b00;
+                            MemWriteD <= 4'bxxxx;
+                            RegReadD <= 2'bxx;
                             BranchTypeD <= `NOBRANCH;
-                            AluContrlD <= `ADD;
-                            ImmType <= `ITYPE;
+                            AluContrlD <= 4'bxxxx;
+                            ImmType <= 3'bxxx;
                         end 
                     endcase
                 end     
                 default: begin
                     RegWriteD <= `NOREGWRITE;
-                    MemWriteD <= 4'b0000;
-                    RegReadD <= 2'b00;
+                    MemWriteD <= 4'bxxxx;
+                    RegReadD <= 2'bxx;
                     BranchTypeD <= `NOBRANCH;
-                    AluContrlD <= `ADD;
-                    ImmType <= `ITYPE;
+                    AluContrlD <= 4'bxxxx;
+                    ImmType <= 3'bxxx;
                 end 
             endcase
         end
@@ -189,12 +189,12 @@ always@(*) begin
                             ImmType <= `RTYPE;
                         end
                         default: begin
-                            RegWriteD <= `LW;
-                            MemWriteD <= 4'b0000;
-                            RegReadD <= 2'b11;   //A1&A2 used
+                            RegWriteD <= `NOREGWRITE;
+                            MemWriteD <= 4'bxxxx;
+                            RegReadD <= 2'bxx;
                             BranchTypeD <= `NOBRANCH;
-                            AluContrlD <= `ADD;
-                            ImmType <= `RTYPE;
+                            AluContrlD <= 4'bxxxx;
+                            ImmType <= 3'bxxx;
                         end
                     endcase
                 end
@@ -256,12 +256,12 @@ always@(*) begin
                             ImmType <= `RTYPE;
                         end
                         default: begin
-                            RegWriteD <= `LW;
-                            MemWriteD <= 4'b0000;
-                            RegReadD <= 2'b11;   //A1&A2 used
+                            RegWriteD <= `NOREGWRITE;
+                            MemWriteD <= 4'bxxxx;
+                            RegReadD <= 2'bxx;
                             BranchTypeD <= `NOBRANCH;
-                            AluContrlD <= `SRL;
-                            ImmType <= `RTYPE;
+                            AluContrlD <= 4'bxxxx;
+                            ImmType <= 3'bxxx;
                         end
                     endcase
                 end
@@ -284,12 +284,12 @@ always@(*) begin
                     ImmType <= `RTYPE;
                 end
                 default: begin
-                    RegWriteD <= `LW;
-                    MemWriteD <= 4'b0000;
-                    RegReadD <= 2'b11;   //A1&A2 used
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'bxxxx;
+                    RegReadD <= 2'bxx;
                     BranchTypeD <= `NOBRANCH;
-                    AluContrlD <= `OR;
-                    ImmType <= `RTYPE;
+                    AluContrlD <= 4'bxxxx;
+                    ImmType <= 3'bxxx;
                 end
             endcase
         end
@@ -377,6 +377,104 @@ always@(*) begin
                 end
             endcase
         end
+        //LOAD
+        7'b0000011:begin
+            case (Fn3)
+                //LB
+                3'b000:begin
+                    RegWriteD <= `LB;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b01;   //A1 used
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= `ADD;
+                    ImmType <= `ITYPE;
+                end
+                //LH
+                3'b001: begin
+                    RegWriteD <= `LH;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b01;   //A1 used
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= `ADD;
+                    ImmType <= `ITYPE;
+                end
+                //LW
+                3'b010: begin
+                    RegWriteD <= `LW;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b01;   //A1 used
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= `ADD;
+                    ImmType <= `ITYPE;
+                end
+                //LBU
+                3'b011: begin
+                    RegWriteD <= `LBU;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b01;   //A1 used
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= `ADD;
+                    ImmType <= `ITYPE;
+                end
+                //LHU
+                3'b100: begin
+                    RegWriteD <= `LHU;
+                    MemWriteD <= 4'b0000;
+                    RegReadD <= 2'b01;   //A1 used
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= `ADD;
+                    ImmType <= `ITYPE;
+                end 
+                default: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'bxxxx;
+                    RegReadD <= 2'bxx;
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= 4'bxxxx;
+                    ImmType <= 3'bxxx;
+                end 
+            endcase
+        end
+        //STORE
+        7'b0100011: begin
+            case (Fn3)
+                //SB
+                3'b000: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b0001;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= `ADD;
+                    ImmType <= `STYPE;
+                end
+                //SH
+                3'b001: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b0011;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= `ADD;
+                    ImmType <= `STYPE;
+                end
+                //SW
+                3'b010: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'b1111;
+                    RegReadD <= 2'b11;   //A1&A2 used
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= `ADD;
+                    ImmType <= `STYPE;
+                end 
+                default: begin
+                    RegWriteD <= `NOREGWRITE;
+                    MemWriteD <= 4'bxxxx;
+                    RegReadD <= 2'bxx;
+                    BranchTypeD <= `NOBRANCH;
+                    AluContrlD <= 4'bxxxx;
+                    ImmType <= 3'bxxx;
+                end
+            endcase
+        end
         default: begin
             RegWriteD <= `NOREGWRITE;
             MemWriteD <= 4'bxxxx;
@@ -393,21 +491,21 @@ endmodule
 //功能说明
     //ControlUnit       是本CPU的指令译码器，组合�?�辑电路
 //输入
-    // Op               是指令的操作码部�??
+    // Op               是指令的操作码部�???
     // Fn3              是指令的func3部分
     // Fn7              是指令的func7部分
 //输出
     // JalD=1          表示Jal指令到达ID译码阶段
     // JalrD=1         表示Jalr指令到达ID译码阶段
-    // RegWriteD        表示ID阶段的指令对应的 寄存器写入模�?? ，所有模式定义在Parameters.v�??
+    // RegWriteD        表示ID阶段的指令对应的 寄存器写入模�??? ，所有模式定义在Parameters.v�???
     // MemToRegD=1     表示ID阶段的指令需要将data memory读取的�?�写入寄存器,
-    // MemWriteD        �??4bit，采用独热码格式，对于data memory�??32bit字按byte进行写入,MemWriteD<=0001表示只写入最�??1个byte，和xilinx bram的接口类�??
+    // MemWriteD        �???4bit，采用独热码格式，对于data memory�???32bit字按byte进行写入,MemWriteD<=0001表示只写入最�???1个byte，和xilinx bram的接口类�???
     // LoadNpcD=1      表示将NextPC输出到ResultM
-    // RegReadD[1]=1   表示A1对应的寄存器值被使用到了，RegReadD[0]=1表示A2对应的寄存器值被使用到了，用于forward的处�??
-    // BranchTypeD      表示不同的分支类型，�??有类型定义在Parameters.v�??
-    // AluContrlD       表示不同的ALU计算功能，所有类型定义在Parameters.v�??
-    // AluSrc2D         表示Alu输入�??2的�?�择
-    // AluSrc1D         表示Alu输入�??1的�?�择
-    // ImmType          表示指令的立即数格式，所有类型定义在Parameters.v�??   
+    // RegReadD[1]=1   表示A1对应的寄存器值被使用到了，RegReadD[0]=1表示A2对应的寄存器值被使用到了，用于forward的处�???
+    // BranchTypeD      表示不同的分支类型，�???有类型定义在Parameters.v�???
+    // AluContrlD       表示不同的ALU计算功能，所有类型定义在Parameters.v�???
+    // AluSrc2D         表示Alu输入�???2的�?�择
+    // AluSrc1D         表示Alu输入�???1的�?�择
+    // ImmType          表示指令的立即数格式，所有类型定义在Parameters.v�???   
 //实验要求  
     //实现ControlUnit模块   

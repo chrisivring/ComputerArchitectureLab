@@ -18,8 +18,8 @@
 `define DataRamContentSavePath "F:\\VivadoWorkspace\\RISCV-CPU\\RISCV-CPU.srcs\\sources_1\\new\\SimFiles\\DataRamContent.txt"
 `define InstRamContentSavePath "F:\\VivadoWorkspace\\RISCV-CPU\\RISCV-CPU.srcs\\sources_1\\new\\SimFiles\\InstRamContent.txt"
  */
-`define DataRamContentLoadPath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\test.data"
-`define InstRamContentLoadPath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\test.inst"
+`define DataRamContentLoadPath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\test2.data"
+`define InstRamContentLoadPath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\test2.inst"
 `define DataRamContentSavePath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\DataRamContent.txt"
 `define InstRamContentSavePath "C:\\Users\\guanq\\OneDrive\\Documents\\ComputerArchitecture\\ComputerArchitectureLab\\lab_2\\2_Simulation\\InstRamContent.txt"
 

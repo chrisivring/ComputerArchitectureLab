@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: USTC ESLAB(Embeded System Lab）
+// Company: USTC ESLAB(Embeded System Lab�?
 // Engineer: Haojun Xia
 // Create Date: 2019/03/14 12:03:15
 // Design Name: RISCV-Pipline CPU
@@ -15,7 +15,6 @@ module BranchDecisionMaking(
     input wire [31:0] Operand1,Operand2,
     output reg BranchE
     );
-endmodule
 
 always@(*) begin
     case (BranchTypeE)
@@ -29,11 +28,11 @@ always@(*) begin
         default: BranchE <= 0;
     endcase
 end
-
-//功能和接口说明
+endmodule
+//功能和接口说�?
     //BranchDecisionMaking接受两个操作数，根据BranchTypeE的不同，进行不同的判断，当分支应该taken时，令BranchE=1'b1
-    //BranchTypeE的类型定义在Parameters.v中
-//推荐格式：
+    //BranchTypeE的类型定义在Parameters.v�?
+//推荐格式�?
     //case()
     //    `BEQ: ???
     //      .......
