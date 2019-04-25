@@ -141,12 +141,12 @@ bgeuloop:
 	nop
 	nop
 	nop
-	sh x1,8(x5)
+	sh x1,10(x5)
 	nop
 	nop
 	nop
 	nop
-	sb x1,16(x5)
+	sb x1,19(x5)
 	nop
 	nop
 	nop
@@ -157,12 +157,12 @@ bgeuloop:
 	nop
 	nop
 	nop
-	lh x2,8(x5)
+	lh x2,10(x5)
 	nop
 	nop
 	nop
 	nop
-	lb x2,16(x5)
+	lb x2,19(x5)
 	nop
 	nop
 	nop
