@@ -408,7 +408,7 @@ always@(*) begin
                     ImmType <= `ITYPE;
                 end
                 //LBU
-                3'b011: begin
+                3'b100: begin
                     RegWriteD <= `LBU;
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b10;   //A1 used
@@ -417,7 +417,7 @@ always@(*) begin
                     ImmType <= `ITYPE;
                 end
                 //LHU
-                3'b100: begin
+                3'b101: begin
                     RegWriteD <= `LHU;
                     MemWriteD <= 4'b0000;
                     RegReadD <= 2'b10;   //A1 used

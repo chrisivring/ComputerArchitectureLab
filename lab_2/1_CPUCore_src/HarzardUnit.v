@@ -59,6 +59,13 @@ module HarzardUnit(
             FlushM <= 1'b0;
             FlushW <= 1'b0;
         end
+        else if((Rs1D == RdE || Rs2D == RdE) && MemToRegE == 1'b1) begin
+            FlushF <= 1'b0;
+            FlushD <= 1'b0;
+            FlushE <= 1'b1;
+            FlushM <= 1'b0;
+            FlushW <= 1'b0;
+        end
         else begin
             FlushF <= 1'b0;
             FlushD <= 1'b0;
