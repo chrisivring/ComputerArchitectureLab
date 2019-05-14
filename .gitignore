@@ -2,3 +2,4 @@
 *.txt
 *.docx
 lab_3/*
+!/CacheSrcCode/
