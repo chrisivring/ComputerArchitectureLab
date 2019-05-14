@@ -4,3 +4,5 @@
 lab_3/*
 !lab_3/*.docx
 !/CacheSrcCode/
+!/lab_3/CPUSrcCode
+!/lab_3/ASM-Benchmark
