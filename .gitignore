@@ -6,3 +6,5 @@ lab_3/*
 !/CacheSrcCode/
 !/lab_3/CPUSrcCode
 !/lab_3/ASM-Benchmark
+!/lab_3/*.md
+!/lab_3/img
